@@ -1,1 +1,4 @@
+// inside main.js
+const files = [...]; // JSON list
+files.forEach(...);  // loader logic
 

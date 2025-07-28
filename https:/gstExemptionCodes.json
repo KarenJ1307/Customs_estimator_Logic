@@ -1,4 +1,13 @@
-https://hscodedata.json/
-https://originCodes.json
-https://ftaAgreements.json
-https://gstExemptionCodes.json
+const files = [
+  "hsCodeData.json",
+  "originCodes.json",
+  "ftaAgreements.json",
+  "gstExemptionCodes.json"
+];
+
+files.forEach(file => {
+  fetch(`https://raw.githubusercontent.com/KMLT-Tools/customs-estimator-logic/main/data/${file}`)
+    .then(res => res.json())
+    .then(data => console.log(`✅ ${file} loaded. ${Object.keys(data[0]).length} keys found.`))
+    .catch(err => console.error(`❌ Error loading ${file}:`, err));
+});
